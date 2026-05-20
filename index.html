@@ -151,7 +151,8 @@
     const tblWeightB = `<table class="q-table"><tr><th>階級(kg)</th><th>度数(人)</th></tr><tr><td>40以上～44未満</td><td>1</td></tr><tr><td>44～48</td><td>3</td></tr><tr><td>48～52</td><td>4</td></tr><tr><td>52～56</td><td>2</td></tr><tr><td>計</td><td>10</td></tr></table>`;
     const tblRun50B = `<table class="q-table"><tr><th>階級(秒)</th><th>度数(人)</th></tr><tr><td>7.5以上～8.0未満</td><td>1</td></tr><tr><td>8.0～8.5</td><td>4</td></tr><tr><td>8.5～9.0</td><td>6</td></tr><tr><td>9.0～9.5</td><td>6</td></tr><tr><td>9.5～10.0</td><td>3</td></tr><tr><td>計</td><td>20</td></tr></table>`;
     const tblGripC = `<table class="q-table"><tr><th>階級(kg)</th><th>度数(人)</th></tr><tr><td>20以上～24未満</td><td>4</td></tr><tr><td>24～28</td><td>6</td></tr><tr><td>28～32</td><td>7</td></tr><tr><td>32～36</td><td>3</td></tr><tr><td>計</td><td>20</td></tr></table>`;
-    const tblWeightC = `<table class="q-table"><tr><th>階級(kg)</th>px<th>度数(人)</th></tr><tr><td>40以上～44未満</td><td>3</td></tr><tr><td>44～48</td><td>2</td></tr><tr><td>48～52</td><td>4</td></tr><tr><td>52～56</td><td>1</td></tr><tr><td>計</td><td>10</td></tr></table>`;
+    // 混入していた不要な「px」の文字列タイポを綺麗に除去
+    const tblWeightC = `<table class="q-table"><tr><th>階級(kg)</th><th>度数(人)</th></tr><tr><td>40以上～44未満</td><td>3</td></tr><tr><td>44～48</td><td>2</td></tr><tr><td>48～52</td><td>4</td></tr><tr><td>52～56</td><td>1</td></tr><tr><td>計</td><td>10</td></tr></table>`;
 
     // --- 問題バンク（全120問超・構文修正済・超巨大ボリューム版） ---
     const questionBank = {
@@ -219,7 +220,7 @@
             { q: "下のかかった時間の度数分布表から、【最頻値（モード）】を求めなさい。<br>" + tblTimeSolve, a: ["14秒", "40秒", "45秒", "50秒"], c: 2, type: "hard" },
             { q: "下の50m走の記録表から、【度数が最も多い階級の階級値】を求めなさい。<br>" + tblRun50, a: ["7人", "8.75秒", "8.5秒", "9.0秒"], c: 1, type: "hard" }
         ],
-        // 【FINAL STAGE: 思考の深淵・極限応用】（謎の文章表現を直接クリーンな数式問題に修正）
+        // 【FINAL STAGE: 思考の深淵・極限応用】
         final: [
             { q: "次の式の同類項をまとめなさい：-<div class='frac'><div class='num-f'>2</div><div class='den-f'>3</div></div>x + y + 2x - <div class='frac'><div class='num-f'>3</div><div class='den-f'>2</div></div>y", a: ["<div class='frac'><div class='num-f'>4</div><div class='den-f'>3</div></div>x - <div class='frac'><div class='num-f'>1</div><div class='den-f'>2</div></div>y", "<div class='frac'><div class='num-f'>4</div><div class='den-f'>3</div></div>x + <div class='frac'><div class='num-f'>1</div><div class='den-f'>2</div></div>y", "-<div class='frac'><div class='num-f'>4</div><div class='den-f'>3</div></div>x - <div class='frac'><div class='num-f'>1</div><div class='den-f'>2</div></div>y", "<div class='frac'><div class='num-f'>8</div><div class='den-f'>3</div></div>x - <div class='frac'><div class='num-f'>5</div><div class='den-f'>2</div></div>y"], c: 0, type: "final" },
             { q: "次の式の同類項をまとめなさい：-<div class='frac'><div class='num-f'>1</div><div class='den-f'>2</div></div>a + b + 3a - <div class='frac'><div class='num-f'>2</div><div class='den-f'>3</div></div>b", a: ["<div class='frac'><div class='num-f'>5</div><div class='den-f'>2</div></div>a + <div class='frac'><div class='num-f'>1</div><div class='den-f'>3</div></div>b", "<div class='frac'><div class='num-f'>5</div><div class='den-f'>2</div></div>a - <div class='frac'><div class='num-f'>1</div><div class='den-f'>3</div></div>b", "<div class='frac'><div class='num-f'>7</div><div class='den-f'>2</div></div>a + <div class='frac'><div class='num-f'>1</div><div class='den-f'>3</div></div>b", "5a + b"], c: 0, type: "final" },
@@ -276,7 +277,7 @@
                 { q: "次の計算をしなさい：5(x - 3y + 2) - 2(2x - 7y + 4)", a: ["x - y + 2", "x - 29y + 2", "-x - y + 2", "x - y + 18"], c: 0, type: "hard" },
                 { q: "次の計算をしなさい：2(3x - y + 5) - 3(2x - 2y + 1)", a: ["4y + 7", "-4y + 7", "4y + 13", "12x + 4y + 7"], c: 0, type: "hard" }
             ],
-            // 【FINAL STAGE: 超複雑数式計算特化仕様】（謎の文章表現を直接クリーンな数式問題に修正）
+            // 【FINAL STAGE: 超複雑数式計算特化仕様】
             final: [
                 { q: "次の計算をしなさい：9xy² × (-2x) ÷ <div class='frac'><div class='num-f'>3</div><div class='den-f'>4</div></div>y", a: ["-24x²y", "-24xy", "24x²y", "-6x²y"], c: 0, type: "final" },
                 { q: "次の計算をしなさい：8a²b × (-3b) ÷ <div class='frac'><div class='num-f'>4</div><div class='den-f'>5</div></div>a", a: ["-30ab²", "30ab²", "-30a²b", "-24ab²"], c: 0, type: "final" },
@@ -465,3 +466,114 @@
                 gameOver("⏳ タイムアップ！時間切れです ⏳", -1);
             }
         }, tickRate);
+    }
+
+    function selectAnswer(idx) {
+        clearInterval(gameTicker);
+        let log = document.getElementById('effect-log');
+
+        if (idx === currentQ.c) {
+            combo++;
+            
+            let typeWeight = 100;
+            if (currentQ.type === "hard") typeWeight = 200;
+            if (currentQ.type === "final") typeWeight = 500; 
+            
+            if (currentMode === 'hard') typeWeight = Math.floor(typeWeight * 1.5);
+            
+            let earned = typeWeight + (combo * 15);
+            
+            if (timeRemaining <= (baseTimeLimit * 0.12)) {
+                earned *= 3;
+                log.innerHTML = `<span style="color:#ffb703;">⚡ 神回避!! ギリギリ正解でスコア3倍奪取!! ⚡</span>`;
+            } else {
+                log.innerHTML = `<span style="color:#06d6a0;">GREAT! 撃破成功 (+${Math.floor(earned)}pt)</span>`;
+            }
+
+            score += Math.floor(earned);
+            document.getElementById('score').innerText = score;
+            document.getElementById('combo').innerText = combo;
+            
+            nextQuestion();
+        } else {
+            gameOver("❌ 誤答！ 計算ミスにより強制終了 ❌", idx);
+        }
+    }
+
+    function gameOver(reason, selectedIdx) {
+        clearInterval(gameTicker);
+        
+        let scoreKey = currentMode === 'hard' ? 'math_pdf_high_hard' : 'math_pdf_high_standard';
+        let crownKey = currentMode === 'hard' ? 'math_crown_hard' : 'math_crown_standard';
+        let legendKey = currentMode === 'hard' ? 'math_legend_hard' : 'math_legend_standard';
+        
+        let high = parseInt(sessionStorage.getItem(scoreKey) || 0);
+        let isNew = false;
+        if(score > high) {
+            sessionStorage.setItem(scoreKey, score);
+            high = score;
+            isNew = true;
+        }
+        
+        let target = targetScores[currentMode];
+        let maxLimit = maxScores[currentMode];
+        let targetReached = false;
+        let legendReached = false;
+
+        if (score >= target) {
+            sessionStorage.setItem(crownKey, 'true');
+            targetReached = true;
+        }
+        if (score >= maxLimit) {
+            sessionStorage.setItem(legendKey, 'true');
+            legendReached = true;
+        }
+
+        document.getElementById('high-score').innerText = high;
+        document.getElementById('screen-title').innerText = "GAME OVER";
+        
+        let cleanQText = currentQ ? currentQ.q.replace(/<table[^>]*>([\s\S]*?)<\/table>/gi, '[表データ表示]') : '';
+
+        let descHtml = `
+            <span style="color:#ff4d6d; font-weight:bold;">${reason}</span><br><br>
+            難易度: <strong>${currentMode.toUpperCase()}</strong><br>
+            記録: <strong style="font-size:1.5rem; color:#06d6a0;">${combo}</strong> 問連続正解<br>
+            最終スコア: <strong style="font-size:2rem; color:#ffb703;">${score}</strong> pt / 目標: ${target} pt<br>
+        `;
+
+        if (currentQ) {
+            let playerAnswerText = selectedIdx === -1 ? "<span style='color:#ff4d6d;'>時間切れ</span>" : `<span style='color:#ff4d6d;'>${currentQ.a[selectedIdx]}</span>`;
+            let correctAnswerText = `<span style='color:#06d6a0;'>${currentQ.a[currentQ.c]}</span>`;
+            
+            descHtml += `
+                <div class="review-box">
+                    <div class="review-title">🔍 直前の問題レビューと復習</div>
+                    <div class="review-item"><strong>問題:</strong> ${cleanQText}</div>
+                    <div class="review-item"><strong>あなたの回答:</strong> ${playerAnswerText}</div>
+                    <div class="review-item"><strong>正しい正解:</strong> ${correctAnswerText}</div>
+                </div>
+            `;
+        }
+        
+        if (legendReached) {
+            descHtml += `<span style="color:#ffd700; font-weight:bold; font-size:1.4rem; filter:drop-shadow(0 0 8px #ffa500);">🏆 レジェンド降臨！極限の壁を突破しました！ 🏆</span><br>`;
+        } else if (targetReached) {
+            descHtml += `<span style="color:#ffd700; font-weight:bold; font-size:1.2rem;">👑 目標達成！王冠を維持しています！（次の限界: ${maxLimit}pt） 👑</span><br>`;
+        } else {
+            descHtml += `<span style="color:#aaa;">王冠獲得の ${target} pt まであと ${(target - score)} pt！</span><br>`;
+        }
+        
+        if (isNew && !legendReached) {
+            descHtml += `<span style="color:#00b4d8;">✨ 自己ベスト更新！ ✨</span><br>`;
+        }
+
+        document.getElementById('screen-desc').innerHTML = descHtml;
+        
+        checkCrowns();
+        document.getElementById('menu-buttons').style.display = 'none';
+        document.getElementById('gameover-buttons').style.display = 'flex';
+        document.getElementById('screen-overlay').style.display = 'flex';
+    }
+</script>
+</body>
+</html>
